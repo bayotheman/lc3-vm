@@ -64,6 +64,12 @@ build CMakeFiles/virtual_machine.dir/hardware/instruction.c.o: C_COMPILER__virtu
   OBJECT_DIR = CMakeFiles/virtual_machine.dir
   OBJECT_FILE_DIR = CMakeFiles/virtual_machine.dir/hardware
 
+build CMakeFiles/virtual_machine.dir/hardware/trap.c.o: C_COMPILER__virtual_machine_Debug /Users/mac/CLionProjects/virtual_machine/hardware/trap.c || cmake_object_order_depends_target_virtual_machine
+  DEP_FILE = CMakeFiles/virtual_machine.dir/hardware/trap.c.o.d
+  FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2 -fcolor-diagnostics -std=gnu11
+  OBJECT_DIR = CMakeFiles/virtual_machine.dir
+  OBJECT_FILE_DIR = CMakeFiles/virtual_machine.dir/hardware
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target virtual_machine
@@ -72,7 +78,7 @@ build CMakeFiles/virtual_machine.dir/hardware/instruction.c.o: C_COMPILER__virtu
 #############################################
 # Link the executable virtual_machine
 
-build virtual_machine: C_EXECUTABLE_LINKER__virtual_machine_Debug CMakeFiles/virtual_machine.dir/main.c.o CMakeFiles/virtual_machine.dir/lc3.c.o CMakeFiles/virtual_machine.dir/hardware/instruction.c.o
+build virtual_machine: C_EXECUTABLE_LINKER__virtual_machine_Debug CMakeFiles/virtual_machine.dir/main.c.o CMakeFiles/virtual_machine.dir/lc3.c.o CMakeFiles/virtual_machine.dir/hardware/instruction.c.o CMakeFiles/virtual_machine.dir/hardware/trap.c.o
   FLAGS = -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk -mmacosx-version-min=12.2
   OBJECT_DIR = CMakeFiles/virtual_machine.dir
   POST_BUILD = :

@@ -95,6 +95,7 @@ void op_str(const uint16_t* instr ){
     uint16_t offset = sign_extend(*instr & 0x3F, 6);
     mem_write(reg[base_r] + offset, r0);
 }
+
 void op_rti(const uint16_t* instruction ){
 }
 

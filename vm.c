@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include "hardware/hardware.h"
+#include "hardware/trap.h"
 
 
 uint16_t mem_read(uint16_t i) {
@@ -142,11 +143,6 @@ int main(int argc, const char* argv[]) {
             case OP_JMP:{
                 uint16_t base_r = (instr >> 6) & 0x7;
                 reg[R_PC] = reg[base_r];
-//                if(base_r == 0x7){
-//                    reg[R_PC] = reg[R_R7];
-//                }else{
-//                    reg[R_PC] = reg[base_r];
-//                }
             }
                 break;
             case OP_JSR:{
@@ -219,7 +215,39 @@ int main(int argc, const char* argv[]) {
             case OP_TRAP:{
                 uint16_t trap_vector = instr & 0xFF;
                 reg[R_R7] = reg[R_PC];
-                reg[R_PC] = mem_read(zero_extend(trap_vector, 8));
+                switch(trap_vector){
+                    case TRAP_GETC:{
+                        reg[R_R0] = (uint16_t) getchar();
+                        update_flags(R_R0);
+                    }
+                        break;
+                    case TRAP_OUT:{
+//                        putchar(((char)reg[R_R0])& 0x7F);
+                        putchar((char)reg[R_R0]);
+                        fflush(stdout);
+                    }
+                        break;
+                    case TRAP_PUTS:
+                    {
+                        /* one char per word */
+                        uint16_t* c = memory + reg[R_R0];
+                        while(*c){
+//                            putc((char)*c, stdout);
+                            putchar((char)*c);
+                            ++c;
+                        }
+                        fflush(stdout);
+                    }
+                        break;
+                    case TRAP_IN:{
+
+                    }
+                        break;
+                    case TRAP_PUTSP:
+                        break;
+                    case TRAP_HALT:
+                        break;
+                }
             }
                 break;
             case OP_RES:
@@ -228,6 +256,7 @@ int main(int argc, const char* argv[]) {
             default:
                 break;
         }
+
     }
     return 0;
 }
