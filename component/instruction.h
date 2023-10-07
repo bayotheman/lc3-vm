@@ -40,21 +40,21 @@ void update_flags(uint16_t r);
 uint16_t sign_extend(uint16_t x, int bit_count);
 uint16_t zero_extend(uint16_t vector, int i);
 
-void op_br(const uint16_t* instruction );
-void op_add(const uint16_t* instruction );
-void op_ld(const uint16_t* instruction );
-void op_st(const uint16_t* instruction );
-void op_jsr(const uint16_t* instruction );
-void op_and(const uint16_t* instruction );
-void op_ldr(const uint16_t* instruction );
-void op_str(const uint16_t* instruction );
-void op_rti(const uint16_t* instruction );
-void op_not(const uint16_t* instruction );
-void op_ldi(const uint16_t* instruction );
-void op_sti(const uint16_t* instruction );
-void op_jmp(const uint16_t* instruction );
-void op_res(const uint16_t* instruction );
-void op_lea(const uint16_t* instruction );
+void op_br(uint16_t instruction );
+void op_add(uint16_t instruction );
+void op_ld( uint16_t instruction );
+void op_st( uint16_t instruction );
+void op_jsr(uint16_t instruction );
+void op_and(uint16_t instruction );
+void op_ldr( uint16_t instruction );
+void op_str( uint16_t instruction );
+void op_rti( uint16_t instruction );
+void op_not( uint16_t instruction );
+void op_ldi( uint16_t instruction );
+void op_sti( uint16_t instruction );
+void op_jmp( uint16_t instruction );
+void op_res( uint16_t instruction );
+void op_lea( uint16_t instruction );
 
 /**
  * </br>
@@ -67,5 +67,5 @@ void op_lea(const uint16_t* instruction );
  *
  * @param instruction lc3 instruction.
  */
-void op_trap(const uint16_t* instruction );
+void op_trap( uint16_t instruction );
 #endif //VIRTUAL_MACHINE_INSTRUCTION_H

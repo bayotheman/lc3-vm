@@ -86,7 +86,7 @@ int main(int argc, const char* argv[]) {
                 op_not(&instruction);
                 break;
             case OP_BR:
-                op_br(&instruction);
+                op_br(instruction);
                 break;
             case OP_JMP:
                 op_jmp(&instruction);
