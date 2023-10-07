@@ -77,43 +77,43 @@ int main(int argc, const char* argv[]) {
         uint16_t opcode = instruction >> 12;
         switch(opcode){
             case OP_ADD:
-                op_add(&instruction);
+                op_add(instruction);
                 break;
             case OP_AND:
-                op_and(&instruction);
+                op_and(instruction);
                 break;
             case OP_NOT:
-                op_not(&instruction);
+                op_not(instruction);
                 break;
             case OP_BR:
                 op_br(instruction);
                 break;
             case OP_JMP:
-                op_jmp(&instruction);
+                op_jmp(instruction);
                 break;
             case OP_JSR:
-                op_jsr(&instruction);
+                op_jsr(instruction);
                 break;
             case OP_LD:
-                op_ld(&instruction);
+                op_ld(instruction);
                 break;
             case OP_LDI:
-                op_ldi(&instruction);
+                op_ldi(instruction);
                 break;
             case OP_LDR:
-                op_ldr(&instruction);
+                op_ldr(instruction);
                 break;
             case OP_LEA:
-                op_lea(&instruction);
+                op_lea(instruction);
                 break;
             case OP_ST:
-                op_st(&instruction);
+                op_st(instruction);
                 break;
             case OP_STI:
-                op_sti(&instruction);
+                op_sti(instruction);
                 break;
             case OP_STR:
-                op_str(&instruction);
+                op_str(instruction);
                 break;
             case OP_TRAP:{
                 uint16_t trap_vector = instruction & 0xFF;
